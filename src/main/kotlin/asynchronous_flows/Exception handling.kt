@@ -13,6 +13,7 @@ fun main() {
 }
 
 //here it's more like completion code instead of catch
+
 suspend fun onCompletion() {
     (1..3).asFlow()
             .onEach { check(it != 2) }
