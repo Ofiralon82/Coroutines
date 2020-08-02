@@ -9,7 +9,7 @@ import kotlinx.coroutines.runBlocking
 //another can blockingly get elements - .receive()
 //a channel is closed when there are no more elements - .close()
 
-//Channel VS Flows:
+//Channels VS Flows:
 //****************
 //For many use cases where the best tool so far was Channel, Flow has become the new best tool.
 //
