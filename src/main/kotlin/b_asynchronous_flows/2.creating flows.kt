@@ -1,4 +1,4 @@
-package asynchronous_flows
+package b_asynchronous_flows
 
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flowOf

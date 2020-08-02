@@ -1,4 +1,4 @@
-package asynchronous_flows
+package b_asynchronous_flows
 
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.buffer

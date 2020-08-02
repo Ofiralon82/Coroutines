@@ -1,4 +1,4 @@
-package asynchronous_flows
+package b_asynchronous_flows
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*

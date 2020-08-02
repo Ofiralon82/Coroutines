@@ -1,4 +1,4 @@
-package basics
+package a_basics
 
 import kotlinx.coroutines.CoroutineName
 import kotlinx.coroutines.launch
