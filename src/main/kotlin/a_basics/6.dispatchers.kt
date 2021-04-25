@@ -1,6 +1,10 @@
 package a_basics
 
 import kotlinx.coroutines.*
+import java.util.concurrent.SynchronousQueue
+import java.util.concurrent.ThreadPoolExecutor
+import java.util.concurrent.TimeUnit
+import kotlin.coroutines.CoroutineContext
 
 //dispatchers - determines which thread or thread pool the coroutine runs on
 //if you want to be more accurate
@@ -38,5 +42,27 @@ fun main() {
         launch(newSingleThreadContext("MyThread")) {
             println("newSingleThreadContext. Thread: ${Thread.currentThread().name}")
         }
+
+        //another way:
+//        private val threadPool = ThreadPoolExecutor(
+//                3, //3 threads
+//                Integer.MAX_VALUE, //max number of thread is unlimited
+//                60L, //wait for 60 sec
+//                TimeUnit.SECONDS,
+//                SynchronousQueue<Runnable>(), //load off immidiadly and not wait on a queue
+//                threadFactory //just for thread name
+//        );
+//
+//        private val dispatcher = threadPool.asCoroutineDispatcher()
+//
+//        override fun dispatch(context: CoroutineContext, block: Runnable) {
+//            dispatcher.dispatch(context, block)
+//        }
+
+        /**
+         * Background CoroutineDispatcher for Android applications which replaces both
+         * [Dispatchers.Default] and [Dispatchers.IO].
+         */
+//        val kotlinx.coroutines.Dispatchers.Background get() = BackgroundDispatcher
     }
 }
