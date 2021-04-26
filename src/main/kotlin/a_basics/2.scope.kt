@@ -7,6 +7,8 @@ import kotlinx.coroutines.*
 //runBlocking - creates a scope and runs a coroutine in a blocking way. not very used.
 //coroutineScope{ } - creates a new scope. does not complete until all children complete
 //here - the runBlocking block the execution and the last print wait until all finished.
+
+//https://stackoverflow.com/questions/53535977/coroutines-runblocking-vs-coroutinescope - nice discussion
 fun main() {
     println("program execution will now block")
     runBlocking {
