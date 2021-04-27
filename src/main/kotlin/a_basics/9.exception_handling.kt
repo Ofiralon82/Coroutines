@@ -13,7 +13,7 @@ import kotlinx.coroutines.*
 //if some coroutines throw an exception (EVEN if we added coroutineExceptionHandler
 // to the CoroutineScope..) - it will propagate the exception
 //to the parent scope and will cancel it (and than all the children will be cancelled)
-//to prevent that we can inject to the coroutineScope a SupervisorJob()
+//to prevent that we can inject to the coroutineScope a SupervisorJob() (the coroutine that throw the exception still cancelled)
 fun main() {
     runBlocking {
         val myHandler = CoroutineExceptionHandler {coroutineContext, throwable ->
