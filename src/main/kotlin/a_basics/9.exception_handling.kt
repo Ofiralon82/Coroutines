@@ -10,10 +10,15 @@ import kotlinx.coroutines.*
 //we have CoroutineExceptionHandler as well:
 
 //more:
+//if some coroutines throw an exception the app will crash
+//with coroutineExceptionHandler we can catch it and prevent the crush. BUT:
 //if some coroutines throw an exception (EVEN if we added coroutineExceptionHandler
-// to the CoroutineScope..) - it will propagate the exception
+// to the CoroutineScope..) - it will propagate the exception (unless we will have try - catch)
 //to the parent scope and will cancel it (and than all the children will be cancelled)
 //to prevent that we can inject to the coroutineScope a SupervisorJob() (the coroutine that throw the exception still cancelled)
+//but the parent scope won't cancelled and still functioned (if it was cancelled it won't function any more - so we didn't crashed but have a
+//serious bug here)
+//so we probably need both coroutineExceptionHandler AND SupervisorJob to handle it correctly
 fun main() {
     runBlocking {
         val myHandler = CoroutineExceptionHandler {coroutineContext, throwable ->
