@@ -19,6 +19,7 @@ import kotlinx.coroutines.*
 //but the parent scope won't cancelled and still functioned (if it was cancelled it won't function any more - so we didn't crashed but have a
 //serious bug here)
 //so we probably need both coroutineExceptionHandler AND SupervisorJob to handle it correctly
+//all that said, the best way to handle exception is to try - catch
 fun main() {
     runBlocking {
         val myHandler = CoroutineExceptionHandler {coroutineContext, throwable ->
