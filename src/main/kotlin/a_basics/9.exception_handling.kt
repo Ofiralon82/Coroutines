@@ -8,6 +8,12 @@ import kotlinx.coroutines.*
 //async - exceptions are deferred until the result ic consumed ONLY.
 //use try - catch inside of it or wrap the await line.
 //we have CoroutineExceptionHandler as well:
+
+//more:
+//if some coroutines throw an exception (EVEN if we added coroutineExceptionHandler
+// to the CoroutineScope..) - it will propagate the exception
+//to the parent scope and will cancel it (and than all the children will be cancelled)
+//to prevent that we can inject to the coroutineScope a SupervisorJob()
 fun main() {
     runBlocking {
         val myHandler = CoroutineExceptionHandler {coroutineContext, throwable ->
